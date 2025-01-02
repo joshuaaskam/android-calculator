@@ -64,10 +64,20 @@ fun CalculatorScreen(
                     symbol = "AC",
                     modifier = Modifier
                         .background(LightGray)
-                        .aspectRatio(2f)
-                        .weight(2f),
+                        .aspectRatio(1f)
+                        .weight(1f),
                     onClick = {
                         onAction(CalculatorAction.Clear)
+                    }
+                )
+                CalculatorButton(
+                    symbol = "+/-",
+                    modifier = Modifier
+                        .background(LightGray)
+                        .aspectRatio(1f)
+                        .weight(1f),
+                    onClick = {
+                        onAction(CalculatorAction.Negate)
                     }
                 )
                 CalculatorButton(

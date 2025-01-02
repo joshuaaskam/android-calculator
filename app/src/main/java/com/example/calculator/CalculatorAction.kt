@@ -8,4 +8,6 @@ sealed class CalculatorAction {
     object Decimal: CalculatorAction()
     object Calculate: CalculatorAction()
     data class Operation(val operation: CalculatorOperation): CalculatorAction()
+
+    object Negate: CalculatorAction()
 }
