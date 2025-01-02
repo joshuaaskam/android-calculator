@@ -279,10 +279,7 @@ fun CalculatorScreen(
     }
 }
 
-@Preview(
-    showBackground = true,
-    backgroundColor = 256
-)
+@Preview()
 @Composable
 fun CalculatorPreview() {
     CalculatorScreen(
