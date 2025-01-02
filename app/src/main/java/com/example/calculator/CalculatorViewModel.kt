@@ -116,16 +116,15 @@ class CalculatorViewModel : ViewModel() {
     private fun calculate() {
         val number1 = _calculatorState.value.number1.toDoubleOrNull()
         val number2 = _calculatorState.value.number2.toDoubleOrNull()
-        val operator = _calculatorState.value.operation?.symbol ?: ""
-        if(number1 == null || operator.isBlank() || number2 == null){
+        if(number1 == null || number2 == null){
             return
         }
-        val ans: Double = when(operator){
-            "+" -> number1 + number2
-            "-" -> number1 - number2
-            "x" -> number1 * number2
-            "÷" -> number1 / number2
-            else -> 0.0
+        val ans: Double = when(_calculatorState.value.operation){
+            is CalculatorOperation.Add -> number1 + number2
+            is CalculatorOperation.Subtract -> number1 - number2
+            is CalculatorOperation.Multiply -> number1 * number2
+            is CalculatorOperation.Divide -> number1 / number2
+            null -> return
         }
 
         _calculatorState.value = CalculatorState(number1 = ans.toString())
