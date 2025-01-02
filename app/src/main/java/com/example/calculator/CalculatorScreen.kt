@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -23,6 +24,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.calculator.ui.theme.LightGray
+import com.example.calculator.ui.theme.MediumGray
 import com.example.calculator.ui.theme.Orange
 
 @Composable
@@ -274,5 +276,10 @@ fun CalculatorScreen(
 )
 @Composable
 fun CalculatorPreview() {
-    CalculatorScreen(viewModel = CalculatorViewModel())
+    CalculatorScreen(
+        viewModel = CalculatorViewModel(),
+        modifier = Modifier
+        .fillMaxSize()
+        .background(MediumGray)
+        .padding(16.dp))
 }
