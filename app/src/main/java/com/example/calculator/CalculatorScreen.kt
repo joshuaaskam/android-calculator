@@ -34,9 +34,7 @@ fun CalculatorScreen(
     buttonSpacing: Dp = 8.dp,
 ) {
     val uiState by viewModel.calculatorState.collectAsState()
-    val onAction: (CalculatorAction) -> Unit = {
-
-    }
+    val onAction: (CalculatorAction) -> Unit = viewModel::onAction
 
     Box(modifier = modifier) {
         Column(
@@ -46,15 +44,16 @@ fun CalculatorScreen(
             verticalArrangement = Arrangement.spacedBy(buttonSpacing)
         ) {
             Text(
-                text = uiState.number1 + (uiState.operation ?: "") + uiState.number2,
+                text = uiState.number1 + (uiState.operation?.symbol ?: "") + uiState.number2,
                 textAlign = TextAlign.End,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(vertical = 32.dp),
                 fontWeight = FontWeight.Light,
-                fontSize = 80.sp,
+                fontSize = 72.sp,
                 color = Color.White,
-                maxLines = 2
+                maxLines = 2,
+                lineHeight = 84.sp
             )
 
             Row(
